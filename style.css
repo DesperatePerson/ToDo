@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+a {
+  text-decoration: none;
+}
+ul,
+ol,
+li {
+  list-style: none;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+html,
+body {
+  height: 100%;
+  line-height: 1;
+  font-size: 18px;
+  font-family: "Inter", sans-serif;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ================================= */
+
+.main-container {
+  width: 634px;
+  height: 797px;
+  background-color: #e6e6e6;
+  border-radius: 15px;
+}
+
+.area {
+  margin: 44px 64px;
+}
+
+.area__adding {
+  display: flex;
+}
+
+.text-area {
+  font-size: 18px;
+  font-family: "Inter", sans-serif;
+  padding: 0 22px;
+  width: 359px;
+  height: 66px;
+  border-radius: 10px 0 0 10px;
+  text-decoration: none;
+  outline: none;
+}
+
+.adding-button {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  width: 160px;
+  height: 65px;
+  background-color: #fbcc28;
+  border-radius: 0px 10px 10px 0px;
+  transition: background-color 0.3s ease;
+}
+
+.adding-button:hover {
+  cursor: pointer;
+  background-color: #e9bc18;
+}
+
+.area__search-container {
+  margin-top: 22px;
+  width: 517px;
+  height: 621px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  overflow:auto;
+}
+
+.area__search-list-container {
+  padding: 20px;
+  height: 500px;
+}
+
+.area__search-list-item {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 474px;
+  height: 85px;
+  border-radius: 10px;
+  background-color: #ffebeb;
+  margin-bottom: 15px;
+}
+
+.completed {
+  background-color: #ebffed;
+  text-decoration: line-through;
+}
+
+.list-text {
+  margin-left: 20px;
+  overflow: hidden;
+  padding: 1px;
+  max-width: 340px;
+}
+
+.list-text:hover {
+  cursor: pointer;
+}
+
+.active-area {
+  display: flex;
+  align-items: center;
+  padding: 30px 0 30px;
+}
+
+.custom-checkbox {
+  width: 25px;
+  height: 25px;
+}
+
+.custom-checkbox:hover {
+  cursor: pointer;
+}
+
+.trash-btn {
+  background-color: transparent;
+}
+
+.trash-btn:hover {
+  cursor: pointer;
+}
