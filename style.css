@@ -44,109 +44,115 @@ body {
 
 /* ================================= */
 
-.main-container {
+.wrapper {
   width: 634px;
   height: 797px;
-  background-color: #e6e6e6;
   border-radius: 15px;
+  background-color: #e6e6e6;
 }
 
-.area {
-  margin: 44px 64px;
+.container {
+  padding: 44px 62px;
 }
 
-.area__adding {
+.form-adding {
   display: flex;
 }
 
-.text-area {
-  font-size: 18px;
-  font-family: "Inter", sans-serif;
-  padding: 0 22px;
+.form-adding__text {
+  padding: 0 20px;
   width: 359px;
   height: 66px;
-  border-radius: 10px 0 0 10px;
-  text-decoration: none;
+  border-radius: 10px 0px 0px 10px;
+  background-color: white;
   outline: none;
-}
 
-.adding-button {
   font-family: "Inter", sans-serif;
   font-size: 18px;
+}
+
+.form-adding__btn {
   width: 160px;
   height: 65px;
-  background-color: #fbcc28;
   border-radius: 0px 10px 10px 0px;
-  transition: background-color 0.3s ease;
+  background-color: #fbcc28;
+
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+
+  transition: all 0.3s ease;
 }
 
-.adding-button:hover {
+.form-adding__btn:hover {
   cursor: pointer;
-  background-color: #e9bc18;
+  background-color: #e9bd1f;
+  border-radius: 0px 20px 20px 0px;
 }
 
-.area__search-container {
+/* ================================= */
+
+.task-list-container {
   margin-top: 22px;
-  width: 517px;
+  width: 514px;
   height: 621px;
-  background-color: #ffffff;
   border-radius: 15px;
-  overflow:auto;
+  background-color: white;
 }
 
-.area__search-list-container {
+.task-list {
   padding: 20px;
-  height: 500px;
+  max-height: 613px;
+  overflow: auto;
 }
 
-.area__search-list-item {
-  padding: 20px;
+.task-list__item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  margin-bottom: 14px;
+
   width: 474px;
   height: 85px;
   border-radius: 10px;
   background-color: #ffebeb;
-  margin-bottom: 15px;
 }
 
-.completed {
-  background-color: #ebffed;
+.task-list__item-done {
   text-decoration: line-through;
+  background-color: #EBFFED;
 }
 
-.list-text {
-  margin-left: 20px;
-  overflow: hidden;
-  padding: 1px;
-  max-width: 340px;
-}
-
-.list-text:hover {
-  cursor: pointer;
-}
-
-.active-area {
+.task-list__click-area {
   display: flex;
   align-items: center;
-  padding: 30px 0 30px;
+  padding: 30px 26px;
 }
 
-.custom-checkbox {
-  width: 25px;
-  height: 25px;
-}
-
-.custom-checkbox:hover {
+.task-list__click-area:hover {
   cursor: pointer;
 }
 
-.trash-btn {
-  background-color: transparent;
+.task-list__checkbox {
+  width: 25px;
+  height: 25px;
+  margin-right: 17px;
 }
 
-.trash-btn:hover {
+.task-list__checkbox:hover {
+  cursor: pointer;
+}
+
+.task-list__text {
+  padding-bottom: 1px;
+  max-width: 300px;
+  overflow: hidden;
+}
+
+.task-list__btn {
+  padding: 25px;
+  background: none;
+}
+
+.task-list__btn:hover {
   cursor: pointer;
 }

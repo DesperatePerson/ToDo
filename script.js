@@ -1,57 +1,97 @@
 "use strict";
 
-const addButton = document.querySelector(".adding-button");
-const taskList = document.querySelector(".area__search-list-container");
+const todoList = document.querySelector(".task-list");
+const formText = document.querySelector(".form-adding__text");
+const formBtn = document.querySelector(".form-adding__btn");
 
-addButton.addEventListener("click", () => {
-  const taskInput = document.querySelector(".text-area");
-  const listText = taskInput.value.trim();
-  let isBackgroundChanged = false;
+let counter = 0;
+const taskList = [];
 
-  if (listText) {
-    const listItem = document.createElement("li");
-    listItem.className = "area__search-list-item";
-    listItem.innerHTML = `
-      <div class="active-area">
-        <input type="checkbox" class="custom-checkbox" />
-        <div class="list-text">${listText}</div>
-      </div>
-      <button class="trash-btn">
-        <img class="trash-btn" src="./img/trash.svg" alt="Удалить" />
-      </button>
-      `;
+if (taskList.length) {
+  taskList.forEach((elem) => {
+    counter = Math.max(elem.id, counter);
+  });
+}
 
-    taskList.addEventListener("click", (event) => {
-      const taskItem = event.target.parentNode.parentNode;
+formBtn.addEventListener("click", addItem);
 
-      if (event.target.type === "checkbox") {
-        if (event.target.checked) {
-          taskItem.classList.add("completed");
-        } else {
-          taskItem.classList.remove("completed");
-        }
-      }
-
-      if (event.target.className === "list-text") {
-        const checkbox = event.target.previousElementSibling;
-
-        if (isBackgroundChanged) {
-          taskItem.classList.remove("completed");
-          checkbox.checked = false;
-        } else {
-          taskItem.classList.add("completed");
-          checkbox.checked = true;
-        }
-
-        isBackgroundChanged = !isBackgroundChanged;
-      }
-
-      if (event.target.className === "trash-btn") {
-        taskItem.remove();
-      }
-    });
-
-    taskList.append(listItem);
-    taskInput.value = "";
+function addItem(event) {
+  event.preventDefault();
+  if (formText.value.trim().length) {
+    const taskItem = {
+      id: counter++,
+      text: formText.value.trim(),
+      isDone: false,
+    };
+    taskList.push(taskItem);
+    formText.value = "";
+    render();
   }
-});
+}
+
+function createHtmlTemplate(obj) {
+  const listItem = document.createElement("li");
+  listItem.className = "task-list__item";
+  listItem.dataset.number = counter;
+  todoList.appendChild(listItem);
+
+  const clickArea = document.createElement("div");
+  clickArea.className = "task-list__click-area";
+  
+  listItem.appendChild(clickArea);
+
+  const itemCheckbox = document.createElement("input");
+  itemCheckbox.className = "task-list__checkbox";
+  itemCheckbox.type = "checkbox";
+  
+  clickArea.appendChild(itemCheckbox);
+
+  if (obj.isDone) {
+    listItem.classList.add("task-list__item-done");
+    itemCheckbox.checked = true;
+  }
+
+  const itemText = document.createElement("span");
+  itemText.className = "task-list__text";
+  itemText.innerText = obj.text;
+  clickArea.appendChild(itemText);
+
+  const listBtn = document.createElement("button");
+  listBtn.className = "task-list__btn";
+  listItem.appendChild(listBtn);
+
+  const itemImg = document.createElement("img");
+  itemImg.className = "task-list__btn-img";
+  itemImg.src = "/img/trash.svg";
+  itemImg.alt = "Удалить";
+  listBtn.append(itemImg);
+
+  clickArea.addEventListener("click", () => {
+    if (!obj.isDone) {
+      listItem.classList.add("task-list__item-done");
+      itemCheckbox.checked = true;
+      obj.isDone = true;
+    } else {
+      listItem.classList.remove("task-list__item-done");
+      itemCheckbox.checked = false;
+      obj.isDone = false;
+    }
+  });
+
+  listBtn.addEventListener("click", () => {
+    taskList.splice(obj.dataset, 1);
+    listItem.remove();
+  });
+
+  return listItem;
+}
+
+function render() {
+  todoList.innerHTML = "";
+  for (let item of taskList) {
+    const domElement = createHtmlTemplate(item);
+    todoList.appendChild(domElement);
+  }
+}
+
+render();

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,15 +7,29 @@
     <title>ToDo</title>
   </head>
   <body>
-    <main class="main-container">
-      <div class="area">
-        <div class="area__adding">
-          <input class="text-area" type="text" />
-          <button class="adding-button">Добавить</button>
-        </div>
+    <main class="wrapper">
+      <div class="container">
+        <form action="" class="form-adding">
+          <input type="text" class="form-adding__text" />
+          <button class="form-adding__btn">Добавить</button>
+        </form>
 
-        <div class="area__search-container">
-          <ul class="area__search-list-container"></ul>
+        <div class="task-list-container">
+          <ul class="task-list">
+            <!-- <li class="task-list__item">
+              <div class="task-list__click-area">
+                <input type="checkbox" class="task-list__checkbox" />
+                <span class="task-list__text">Some task ToDo</span>
+              </div>
+              <button class="task-list__btn">
+                <img
+                  src="/img/trash.svg"
+                  alt="Удалить"
+                  class="task-list__btn-img"
+                />
+              </button>
+            </li> -->
+          </ul>
         </div>
       </div>
     </main>
